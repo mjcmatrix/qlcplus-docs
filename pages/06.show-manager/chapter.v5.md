@@ -56,10 +56,26 @@ Across the top:
 | <i class="fa fa-copy fa-2x"></i> **Copy** | Copy the selected items into the clipboard. |
 | <i class="fa fa-paste fa-2x"></i> **Paste** | Paste items from the clipboard at the cursor position. |
 | **Time display** | The current cursor time. |
-| <i class="fa fa-play fa-2x"></i> **Play / Pause** | Play back or pause/resume the Show from the cursor position. |
-| <i class="fa fa-stop fa-2x"></i> **Stop / Rewind** | Stop thr Show playback (press again to rewind to the start). |
+| <i class="fa fa-play fa-2x"></i> **Play / Pause** | Play back or pause/resume the Show from the cursor position. Keyboard shortcut: **Space**. |
+| <i class="fa fa-stop fa-2x"></i> **Stop / Rewind** | Stop the Show playback (press again to rewind to the start). Keyboard shortcut: **Esc**. |
 | **Markers** | The time division shown on the header: **Time**, or beats at **BPM 4/4**, **3/4** or **2/4**. |
 | <i class="fa fa-2x fa-magnifying-glass-minus"></i><i class="fa fa-2x fa-magnifying-glass-plus"></i> **Zoom** | Zoom the timeline in and out along the time axis. |
+
+## Playing the show
+
+Besides the two toolbar buttons, the playback can be driven from the keyboard
+while the Show Manager is on screen:
+
+| Key | What it does |
+|-----|--------------|
+| **Space** | Play, pause or resume the Show, exactly like the **Play / Pause** button. |
+| **Esc** | Stop the Show; press it again to rewind the cursor to the start. |
+
+The keys work wherever you are in the Show Manager, without having to click the
+timeline first, and they also work when the Show Manager has been detached into
+its own window. They are ignored while you are typing in a field such as the
+show's **Name**, while a dialog is open, and while another workspace (the
+Virtual Console, for instance) is the one on screen.
 
 ## Tracks
 
