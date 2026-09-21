@@ -53,8 +53,9 @@ Across the top:
 | ![](../basics/grid.svg?resize=48,48) **Snap to grid** | Makes items snap to the time grid when you move them. |
 | <i class="fa fa-arrows-left-right-to-line fa-2x"></i> **Stretch the original function** | When enabled, resizing an item stretches the underlying function's timing to fit, rather than just cropping it. |
 | <i class="fa fa-minus fa-2x" style="color:crimson"></i> **Remove the selected items** | Removes the selected items from the show. (The original functions are **not** deleted.) |
-| <i class="fa fa-copy fa-2x"></i> **Copy** | Copy the selected items into the clipboard. |
-| <i class="fa fa-paste fa-2x"></i> **Paste** | Paste items from the clipboard at the cursor position. |
+| <i class="fa fa-scissors fa-2x"></i> **Cut** | Cut the selected items (**Ctrl+X**), to move them with the next paste. See [Cut, copy and paste](#cut-copy-and-paste). |
+| <i class="fa fa-copy fa-2x"></i> **Copy** | Copy the selected items into the clipboard (**Ctrl+C**). |
+| <i class="fa fa-paste fa-2x"></i> **Paste** | Paste items from the clipboard at the cursor position (**Ctrl+V**). |
 | **Time display** | The current cursor time. |
 | <i class="fa fa-play fa-2x"></i> **Play / Pause** | Play back or pause/resume the Show from the cursor position. |
 | <i class="fa fa-stop fa-2x"></i> **Stop / Rewind** | Stop thr Show playback (press again to rewind to the start). |
@@ -66,8 +67,31 @@ Across the top:
 Each track is one row of the timeline.
 
 * Use the <i class="fa fa-plus" style="color:limegreen"></i> **Create a new track** control to add a track.
+* **Click** a track name to select it. Selecting items also selects the topmost
+  track holding one of them. **Ctrl+click** the selected track to deselect it.
 * When a track is selected, the <i class="fa fa-angle-up"></i> / <i class="fa fa-angle-down"></i> **move track up / down** arrows (top-left of the
   timeline) reorder it among the other tracks.
+
+## Cut, copy and paste
+
+Select items, then cut or copy them with the toolbar buttons or with
+**Ctrl+X** / **Ctrl+C**, and paste them with the **Paste** button or **Ctrl+V**.
+The keys work when you last clicked on the timeline or on a track, and not
+while you are typing in a text field, such as when renaming a track.
+
+* **Cut** items stay where they are, dimmed, until you paste: the paste then
+  moves them. Copying something else cancels the cut. Locked items can't be cut.
+* A paste places the **earliest** item at the **cursor**, and keeps the other
+  items at the same distance from it.
+* The topmost track of the items goes onto the **selected track**, and the rest
+  follow on the tracks below it, keeping the same layout, empty tracks in
+  between included. If no track is selected, the items go back onto their own
+  tracks.
+* Items on a track can't overlap. If any pasted item would overlap an existing
+  one, or there are not enough tracks below the selected one, nothing is
+  pasted and a message tells you why. When moving cut items, the space they
+  leave counts as free.
+* The pasted items become the new selection.
 
 ## The timing tool
 
