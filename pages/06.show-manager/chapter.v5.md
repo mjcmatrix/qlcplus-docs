@@ -38,6 +38,15 @@ current playback position, and a header shows time (or beat) markers.
   it to the show at that time.
 * **Click** an item to select it; enable multiple selection (right panel) to
   select several.
+* **Box select** several items at once by dragging a box around them: hold
+  **Ctrl** and drag on an empty part of the timeline, or click the
+  <i class="fa fa-object-group"></i> **Box select** button in the right panel
+  and then drag anywhere on the timeline. Only items lying entirely inside the
+  box are selected. The box replaces the current selection; hold **Shift** as
+  well when releasing to add to it instead. Dragging near the left or right edge
+  of the timeline scrolls it, so the box can be wider than the visible area.
+  The **Box select** button stays pressed for a single box, and is released
+  again after one, or by a click on the timeline that doesn't draw one.
 * **Drag** items along a track to change when they play, or between tracks.
 * **Double-click** an item to open the underlying function's own editor.
 
@@ -124,4 +133,6 @@ cursor shifts accordingly:
 
 While in the Show Manager the right panel is the usual
 [Function Manager](/function-manager), so you can drag any function onto the
-timeline. It also gains the <i class="fa fa-stopwatch fa-2x" style="color:turquoise"></i> **Timing** button described above.
+timeline. It also gains the <i class="fa fa-stopwatch fa-2x" style="color:turquoise"></i> **Timing** button described above,
+and at the bottom the **multiple selection** and <i class="fa fa-object-group fa-2x"></i> **Box select**
+toggles described in [The timeline](#the-timeline).
