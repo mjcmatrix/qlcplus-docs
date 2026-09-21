@@ -122,7 +122,7 @@ Sequences, EFX, RGB Matrices, Collections, Scripts, Audio, Video and Shows.
 | <i class="fa fa-plus fa-2x" style="color:limegreen"></i>**Add a new function** | Opens a menu to create a new function. Pick the type and its editor opens automatically. (Only available when function editing is permitted.) |
 | <i class="fa fa-minus fa-2x" style="color:crimson"></i>**Delete** | Deletes the selected functions and folders, after asking you to confirm. |
 | ![](../basics/rename.svg?resize=48,48) **Rename** | Renames the selected item. When several items are selected, you can rename them all at once with automatic numbering. |
-| <i class="fa fa-clone fa-2x"></i>**Clone** | Makes a copy of each selected function. |
+| <i class="fa fa-clone fa-2x"></i>**Clone** | Makes a copy of each selected function. The copies then become the selection. |
 | <i class="fa fa-sitemap fa-2x"></i>**Show function usage** | Shows where the selected function is used — which other functions, virtual console widgets, etc. reference it. |
 | ![](../basics/autostart.svg?resize=48,48) **Autostart** | Marks the selected function to start automatically when the project is loaded (or removes that mark). |
 | <i class="fa fa-play fa-2x"></i>**Function Preview** | Runs the selected function live so you can preview it. Click again to stop. |

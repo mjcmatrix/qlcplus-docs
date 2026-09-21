@@ -14,7 +14,7 @@ A **Chaser** plays a list of functions (usually scenes) one after another, each 
 | <i class="fa fa-2x fa-circle-left" style="color:cyan"></i> **Preview the previous step** | When preview is running, steps backwards through the chaser so you can check each look on the output. |
 | <i class="fa fa-2x fa-circle-right" style="color:cyan"></i> **Preview the next step** | When preview is running, steps forwards through the chaser. |
 | <i class="fa fa-2x fa-plus" style="color:limegreen"></i> **Add a new step** | Opens the Function Manager in a side panel. **Double-click** or drag functions from it to append them as steps. |
-| <i class="fa fa-2x fa-clone"></i> **Duplicate the selected step(s)** | Copies the selected steps, inserting the copies into the list. |
+| <i class="fa fa-2x fa-clone"></i> **Duplicate the selected step(s)** | Copies the selected steps, adding the copies at the end of the list. The copies then become the selection. |
 | <i class="fa fa-2x fa-shuffle" style="color:gold"></i> **Randomize the selected step(s) order** | Shuffles the order of the selected steps. |
 | <i class="fa fa-2x fa-stopwatch" style="color:lightskyblue"></i> **Auto-set step durations** | Divides the chaser's total duration evenly across the selected steps. |
 | <i class="fa fa-2x fa-minus" style="color:crimson"></i> **Remove the selected steps** | Deletes the selected steps (asks for confirmation). |
