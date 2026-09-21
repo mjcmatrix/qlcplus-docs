@@ -48,7 +48,7 @@ The menu items are listed here:
 
 ![](../basics/network.svg) Configure client and server network settings (either native or web interface)  
 ![](../basics/diptool.svg) Open the DIP switch calculation tool  
-![](../basics/configure.svg) Open the UI settings panel to tune colors, scaling, etc..  
+![](../basics/configure.svg) Open the UI settings panel to tune colors, scaling, etc. Changes are saved automatically and restored at the next start. The **Save profile** and **Load profile** buttons store the current settings to a file of your choice and bring them back later, for example to switch between looks or to move them to another computer. Settings a profile does not contain revert to their default when it is loaded  
 <i class="fa fa-maximize fa-2x"></i> Toggle full screen mode (CTRL+F11)  
 <i class="fa fa-earth-europe fa-2x"></i> Switch the UI language (might require an application restart)  
 <i class="fa fa-circle-info fa-2x"></i> View information about QLC+  
