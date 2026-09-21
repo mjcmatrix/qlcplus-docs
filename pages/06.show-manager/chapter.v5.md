@@ -51,6 +51,7 @@ Across the top:
 | ![](../basics/color.svg?resize=48,48) **Show items color** | Sets the colour of the selected timeline items, to colour-code your show. |
 | ![](../basics/lock.svg?resize=48,48) **Lock / Unlock** | Locks the selected items so they can't be moved or resized by accident (the icon toggles between lock and unlock). |
 | ![](../basics/grid.svg?resize=48,48) **Snap to grid** | Makes items snap to the time grid when you move them. |
+| <i class="fa fa-drum fa-2x"></i> **Show the tempo sections** | Shows the tempo lane below the timeline header (see [Tempo sections](#tempo-sections)). Only available with **Time** markers. |
 | <i class="fa fa-arrows-left-right-to-line fa-2x"></i> **Stretch the original function** | When enabled, resizing an item stretches the underlying function's timing to fit, rather than just cropping it. |
 | <i class="fa fa-minus fa-2x" style="color:crimson"></i> **Remove the selected items** | Removes the selected items from the show. (The original functions are **not** deleted.) |
 | <i class="fa fa-copy fa-2x"></i> **Copy** | Copy the selected items into the clipboard. |
@@ -68,6 +69,79 @@ Each track is one row of the timeline.
 * Use the <i class="fa fa-plus" style="color:limegreen"></i> **Create a new track** control to add a track.
 * When a track is selected, the <i class="fa fa-angle-up"></i> / <i class="fa fa-angle-down"></i> **move track up / down** arrows (top-left of the
   timeline) reorder it among the other tracks.
+
+## Tempo sections
+
+A show often plays several songs one after another, each at its own tempo.
+**Tempo sections** tell the Show the tempo of each part of the timeline, so
+that chasers set to a **Beats** tempo step exactly on the beat of the song they
+play over, instead of following the global BPM.
+
+Tempo sections are available when the **Markers** setting is **Time**. Click
+<i class="fa fa-drum"></i> **Show the tempo sections** to show the **Tempo**
+lane below the timeline header. A show that has tempo sections always shows
+the lane.
+
+Each section has a start, a length, a **BPM** (decimal values such as 127.5 are
+allowed), a number of **beats per bar** and a name. The lane shows the bar
+numbers and beat ticks of each section, starting from bar 1 at the section
+start.
+
+* **Right-click** the lane and choose **Add a tempo section here** to add a
+  section at that point. It lasts up to the next section, or one minute.
+* Select one or more audio items, then right-click the lane and choose **Add
+  tempo sections from the selected audio items**: each audio item gets a
+  section with its position, length and name.
+* A new section opens its editor straight away, to set its **BPM**, **beats per
+  bar** and **name**. Double-click a section, or right-click it and choose
+  **Edit the tempo section**, to change them later.
+* **Drag** a section to move it, or drag its left or right edge to resize it.
+  Sections can't overlap: a section stops at its neighbour, and can sit right
+  against it. Section edges snap to the edges of the show items.
+* Right-click a section and choose **Split the tempo section here** to split it
+  in two at the nearest beat, for example where a song changes tempo, then edit
+  the tempo of the second part. Bar numbering starts again at 1 in the second
+  part.
+* Right-click a section and choose **Delete the tempo section** to remove it.
+
+To line a section up with a song, place its start on the song's first
+downbeat, using the audio item waveform as a guide, and set the song's BPM.
+Moving a section or changing its tempo never moves the show items.
+
+### How chasers follow the sections
+
+A chaser set to a **Beats** tempo on a show with tempo sections:
+
+* steps at the tempo of the section it is playing in, and changes steps on that
+  section's beats. A chaser placed off the beat changes its first step on the
+  nearest beat, then stays on the beat.
+* follows the new tempo and beat grid when it runs from one section into the
+  next.
+* keeps the tempo of the last section in the gap after it, and follows the
+  global BPM before the first section.
+* lands on the same step when the show is played from the middle of the chaser
+  as when it is played from the start.
+
+Its fades, when set by the chaser, are timed at the section tempo too. Chasers
+set to a **Time** tempo, and all other functions, are not affected.
+
+### Grid and snapping
+
+With **Snap to grid** enabled, the grid inside a section shows its bars and
+beats, and adds half and quarter beats when you zoom in. Moving or resizing an
+item inside a section snaps it to the finest beat division visible. Outside the
+sections the grid and its snapping are unchanged.
+
+### Limitations
+
+* Tempo sections only work with **Time** markers. A show with tempo sections
+  can't be switched to BPM markers until its sections are deleted.
+* Only chasers and sequences follow the tempo sections so far. Other functions
+  set to a **Beats** tempo, such as RGB matrices, still follow the global BPM.
+* Adding, moving and editing tempo sections can't be undone.
+* In older versions of QLC+, a project with tempo sections still opens, but its
+  chasers follow the global BPM, and the items of **Beats** tempo chasers appear
+  in the wrong place on the timeline.
 
 ## The timing tool
 
