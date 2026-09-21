@@ -36,9 +36,26 @@ current playback position, and a header shows time (or beat) markers.
 
 * **Drag** a function from the right panel's Function Manager onto a track to add
   it to the show at that time.
-* **Click** an item to select it; enable multiple selection (right panel) to
-  select several.
+* **Click** an item to select it; enable multiple selection (right panel), or
+  hold **Ctrl** or **Shift** while clicking, to select several.
+* Press **Ctrl+A** to select every item on the selected track. It works once
+  you have clicked the timeline or a track, and not while you are typing in a
+  field such as a track name. If no track is selected, it uses the track of
+  the last selected item.
 * **Drag** items along a track to change when they play, or between tracks.
+  Dragging a selected item moves the whole selection with it, apart from any
+  locked items, which stay where they are. While you drag,
+  the items snap to the nearest track, so you can see which track they will
+  land on.
+* Hold **Shift** while dragging to lock the movement to one direction: the
+  direction you were already moving in when you pressed Shift. Lock it
+  vertically to move items to another track without changing their start
+  times, or horizontally to change their start times without changing
+  track. Release Shift to move freely again.
+* The edges of an item are resize handles: drag them to change when it starts
+  or ends. On a very thin item the handles shrink, so you can still click the
+  middle of the item to select or drag it. Items too thin for handles have
+  none; zoom in to resize them.
 * **Double-click** an item to open the underlying function's own editor.
 
 ## Toolbar
