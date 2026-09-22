@@ -177,13 +177,25 @@ chaser editor. The converter offers:
   used, or new copies. Copies are used by the selected items, or by every item
   of the show using the original, and the originals stay unchanged. When the
   items are in songs at different tempos, you get one copy per tempo, unless
-  you untick **One copy per tempo**. Chasers started from collections are only
-  converted in place, as a copy would change the collection wherever it is
-  used, and copies are only made in the show being edited.
+  you untick **One copy per tempo**. Copies are only made in the show being
+  edited.
+
+When a chaser is started from a collection, the collections leading to it are
+copied along with it, nested ones included, and the item then starts the copy.
+The collections the show used before are left exactly as they are, so their
+other uses are unaffected. A collection copy is shared by everything converted
+with it: two chasers converted inside one collection give one copy of it rather
+than one each, and a collection used in songs at different tempos gets one copy
+per tempo, named with the tempo.
 
 The converter shows the converted timings before you apply them, and the other
 places a chaser converted in place is used. A chaser converted in place gets a
 single tempo, taken from most of its items. The whole conversion can be undone.
+
+Converting a track at a time makes a separate copy of a chaser on each pass, so
+the preview says how many more items of the show use a chaser without being
+selected. Choose **Whole Show** to convert them all in one pass and get a
+single set of copies.
 
 Beats tempo chasers and sequences started by a collection item follow the tempo
 sections too.
