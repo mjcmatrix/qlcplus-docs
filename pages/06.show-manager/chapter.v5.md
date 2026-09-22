@@ -94,7 +94,7 @@ The buttons at the left of the lane:
 | <i class="fa fa-music fa-2x"></i> **Add tempo sections from the selected audio items** | Adds a section for each selected audio item, with its position, length and name. It can detect the tempo of each item from its audio (see [Detecting the tempo of songs](#detecting-the-tempo-of-songs)), and when selected items overlap existing sections, it asks how to handle them (see below). |
 | <i class="fa fa-pen fa-2x"></i> **Edit the selected tempo section** | Sets the section's **BPM**, **beats per bar** and **name**. Double-clicking a section does the same. |
 | <i class="fa fa-scissors fa-2x"></i> **Split the selected tempo section at the cursor** | Splits the section in two at the beat nearest to the cursor, for example where a song changes tempo. Bar numbering starts again at 1 in the second part. |
-| <i class="fa fa-trash-can fa-2x" style="color:crimson"></i> **Delete the selected tempo section** | Removes the section. |
+| <i class="fa fa-trash-can fa-2x" style="color:crimson"></i> **Delete the selected tempo section** | Removes the section. Hold **Shift** while clicking to delete all the tempo sections of the show, after a confirmation. Deleting them can be undone. |
 
 A new section opens its editor straight away, since its tempo always needs
 setting. **Drag** a section to move it, or drag its left or right edge to resize
