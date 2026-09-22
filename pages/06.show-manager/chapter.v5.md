@@ -158,12 +158,17 @@ grid and its snapping are unchanged.
 ### Converting chasers between Time and Beats tempo
 
 Existing chasers set to a **Time** tempo can be converted to a **Beats** tempo
-at the tempo of a song, and back. Select the chaser items and click
-<i class="fa fa-right-left fa-2x"></i> **Convert the selected Chasers between
-Time and Beats tempo** in the toolbar, or click the same button next to
-**Tempo** in the chaser editor. The converter offers:
+at the tempo of a song, and back. Click
+<i class="fa fa-right-left fa-2x"></i> **Convert Chasers between Time and
+Beats tempo** in the toolbar, or click the same button next to **Tempo** in the
+chaser editor. The converter offers:
 
 * **Convert**: Time tempo chasers to Beats, or Beats tempo chasers to Time.
+* **Chasers of**: the selected items, every item of the whole show, or every
+  item of all shows, for example a show per act. Chasers started from
+  collections are included, also through nested collections, and take the
+  tempo of the section at the start of the collection item. Chasers already in
+  the target tempo are skipped, so you can convert one track at a time.
 * **Tempo**: the tempo section under each item (from the chaser editor, the
   section at the cursor), one of the sections, or a BPM you type.
 * **Round to**: step times in beats are rounded to the nearest 1, ½, ¼ or ⅛ of
@@ -172,10 +177,16 @@ Time and Beats tempo** in the toolbar, or click the same button next to
   used, or new copies. Copies are used by the selected items, or by every item
   of the show using the original, and the originals stay unchanged. When the
   items are in songs at different tempos, you get one copy per tempo, unless
-  you untick **One copy per tempo**.
+  you untick **One copy per tempo**. Chasers started from collections are only
+  converted in place, as a copy would change the collection wherever it is
+  used, and copies are only made in the show being edited.
 
 The converter shows the converted timings before you apply them, and the other
-places a chaser converted in place is used. The whole conversion can be undone.
+places a chaser converted in place is used. A chaser converted in place gets a
+single tempo, taken from most of its items. The whole conversion can be undone.
+
+Beats tempo chasers and sequences started by a collection item follow the tempo
+sections too.
 
 **Speed Dials:** a Virtual Console Speed Dial sets the times of the functions
 it controls in milliseconds, even on a chaser set to a **Beats** tempo, where
