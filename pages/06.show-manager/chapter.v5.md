@@ -77,36 +77,34 @@ A show often plays several songs one after another, each at its own tempo.
 that chasers set to a **Beats** tempo step exactly on the beat of the song they
 play over, instead of following the global BPM.
 
-Tempo sections are available when the **Markers** setting is **Time**. Click
-<i class="fa fa-drum"></i> **Show the tempo sections** to show the **Tempo**
-lane below the timeline header. A show that has tempo sections always shows
-the lane.
+Click <i class="fa fa-drum"></i> **Show the tempo sections** to show the
+**Tempo** lane below the timeline header. It is available when the **Markers**
+setting is **Time**. A show that has tempo sections always shows the lane.
 
 Each section has a start, a length, a **BPM** (decimal values such as 127.5 are
 allowed), a number of **beats per bar** and a name. The lane shows the bar
 numbers and beat ticks of each section, starting from bar 1 at the section
-start.
+start. Tap a section to select it.
 
-* **Right-click** the lane and choose **Add a tempo section here** to add a
-  section at that point. It lasts up to the next section, or one minute.
-* Select one or more audio items, then right-click the lane and choose **Add
-  tempo sections from the selected audio items**: each audio item gets a
-  section with its position, length and name.
-* A new section opens its editor straight away, to set its **BPM**, **beats per
-  bar** and **name**. Double-click a section, or right-click it and choose
-  **Edit the tempo section**, to change them later.
-* **Drag** a section to move it, or drag its left or right edge to resize it.
-  Sections can't overlap: a section stops at its neighbour, and can sit right
-  against it. Section edges snap to the edges of the show items.
-* Right-click a section and choose **Split the tempo section here** to split it
-  in two at the nearest beat, for example where a song changes tempo, then edit
-  the tempo of the second part. Bar numbering starts again at 1 in the second
-  part.
-* Right-click a section and choose **Delete the tempo section** to remove it.
+The buttons at the left of the lane:
+
+| Button | What it does |
+|--------|--------------|
+| <i class="fa fa-plus fa-2x" style="color:limegreen"></i> **Add a tempo section at the cursor** | Adds a section starting at the cursor. It lasts up to the next section, or one minute. |
+| <i class="fa fa-music fa-2x"></i> **Add tempo sections from the selected audio items** | Adds a section for each selected audio item, with its position, length and name. Items that another section overlaps are skipped. |
+| <i class="fa fa-pen fa-2x"></i> **Edit the selected tempo section** | Sets the section's **BPM**, **beats per bar** and **name**. Double-clicking a section does the same. |
+| <i class="fa fa-scissors fa-2x"></i> **Split the selected tempo section at the cursor** | Splits the section in two at the beat nearest to the cursor, for example where a song changes tempo. Bar numbering starts again at 1 in the second part. |
+| <i class="fa fa-trash-can fa-2x" style="color:crimson"></i> **Delete the selected tempo section** | Removes the section. |
+
+A new section opens its editor straight away, since its tempo always needs
+setting. **Drag** a section to move it, or drag its left or right edge to resize
+it. Sections can't overlap: a section stops at its neighbour, and can sit right
+against it. Section edges snap to the edges of the show items.
 
 To line a section up with a song, place its start on the song's first
 downbeat, using the audio item waveform as a guide, and set the song's BPM.
-Moving a section or changing its tempo never moves the show items.
+Moving a section or changing its tempo never moves the show items. All the
+changes to tempo sections can be undone.
 
 ### How chasers follow the sections
 
@@ -125,20 +123,53 @@ A chaser set to a **Beats** tempo on a show with tempo sections:
 Its fades, when set by the chaser, are timed at the section tempo too. Chasers
 set to a **Time** tempo, and all other functions, are not affected.
 
+Once a show has had tempo sections, it keeps the position of every item in
+milliseconds, even if its sections are deleted later. Its **Beats** tempo
+chasers then follow the global BPM until the show gets new sections. Switching
+the **Markers** to a BPM setting only changes the ruler: the items and the
+tempo sections stay as they are.
+
 ### Grid and snapping
 
 With **Snap to grid** enabled, the grid inside a section shows its bars and
 beats, and adds half and quarter beats when you zoom in. Moving or resizing an
-item inside a section snaps it to the finest beat division visible. Outside the
-sections the grid and its snapping are unchanged.
+item inside a section snaps it to the finest beat division visible. Snapping to
+nearby items still works as usual, and takes priority over the grid, so items
+can also be lined up with edges that are off the beat. Outside the sections the
+grid and its snapping are unchanged.
+
+### Converting chasers between Time and Beats tempo
+
+Existing chasers set to a **Time** tempo can be converted to a **Beats** tempo
+at the tempo of a song, and back. Select the chaser items and click
+<i class="fa fa-right-left fa-2x"></i> **Convert the selected Chasers between
+Time and Beats tempo** in the toolbar, or click the same button next to
+**Tempo** in the chaser editor. The converter offers:
+
+* **Convert**: Time tempo chasers to Beats, or Beats tempo chasers to Time.
+* **Tempo**: the tempo section under each item (from the chaser editor, the
+  section at the cursor), one of the sections, or a BPM you type.
+* **Round to**: step times in beats are rounded to the nearest 1, ½, ¼ or ⅛ of
+  a beat. Nothing is rounded down to zero.
+* **Apply to**: the chasers themselves, which changes them everywhere they are
+  used, or new copies. Copies are used by the selected items, or by every item
+  of the show using the original, and the originals stay unchanged. When the
+  items are in songs at different tempos, you get one copy per tempo, unless
+  you untick **One copy per tempo**.
+
+The converter shows the converted timings before you apply them, and the other
+places a chaser converted in place is used. The whole conversion can be undone.
+
+**Speed Dials:** a Virtual Console Speed Dial sets the times of the functions
+it controls in milliseconds, even on a chaser set to a **Beats** tempo, where
+they are then read as beats (500 ms becomes half a beat). The converter warns
+when a chaser is controlled by a Speed Dial. Disconnect the Speed Dial from
+chasers that follow tempo sections, which don't need it.
 
 ### Limitations
 
-* Tempo sections only work with **Time** markers. A show with tempo sections
-  can't be switched to BPM markers until its sections are deleted.
 * Only chasers and sequences follow the tempo sections so far. Other functions
   set to a **Beats** tempo, such as RGB matrices, still follow the global BPM.
-* Adding, moving and editing tempo sections can't be undone.
 * In older versions of QLC+, a project with tempo sections still opens, but its
   chasers follow the global BPM, and the items of **Beats** tempo chasers appear
   in the wrong place on the timeline.
