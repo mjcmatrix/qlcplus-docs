@@ -91,7 +91,7 @@ The buttons at the left of the lane:
 | Button | What it does |
 |--------|--------------|
 | <i class="fa fa-plus fa-2x" style="color:limegreen"></i> **Add a tempo section at the cursor** | Adds a section starting at the cursor. It lasts up to the next section, or one minute. |
-| <i class="fa fa-music fa-2x"></i> **Add tempo sections from the selected audio items** | Adds a section for each selected audio item, with its position, length and name. When selected items overlap existing sections, it asks how to handle them (see below). |
+| <i class="fa fa-music fa-2x"></i> **Add tempo sections from the selected audio items** | Adds a section for each selected audio item, with its position, length and name. It can detect the tempo of each item from its audio (see [Detecting the tempo of songs](#detecting-the-tempo-of-songs)), and when selected items overlap existing sections, it asks how to handle them (see below). |
 | <i class="fa fa-pen fa-2x"></i> **Edit the selected tempo section** | Sets the section's **BPM**, **beats per bar** and **name**. Double-clicking a section does the same. |
 | <i class="fa fa-scissors fa-2x"></i> **Split the selected tempo section at the cursor** | Splits the section in two at the beat nearest to the cursor, for example where a song changes tempo. Bar numbering starts again at 1 in the second part. |
 | <i class="fa fa-trash-can fa-2x" style="color:crimson"></i> **Delete the selected tempo section** | Removes the section. |
@@ -103,9 +103,10 @@ against it. Section edges snap to the edges of the show items.
 
 Songs often overlap at their edges, with the next song starting on a second
 audio track before the previous one ends. When some of the selected audio items
-overlap existing sections, **Add tempo sections from the selected audio items**
-asks whether the new sections should **take over from their start**, which is
-ticked by default:
+overlap existing sections, the window that
+<i class="fa fa-music"></i> **Add tempo sections from the selected audio items**
+opens asks whether the new sections should **take over from their start**, which
+is ticked by default:
 
 * **Ticked:** the items are taken in start order, and the tempo changes at the
   start of each new song. An existing section is cut where a new one starts. If
@@ -117,6 +118,48 @@ ticked by default:
 
 To add sections for the second song track, for example, select its items and
 click <i class="fa fa-music"></i>.
+
+### Detecting the tempo of songs
+
+Select the audio items of the songs, as many as needed, click
+<i class="fa fa-music"></i> **Add tempo sections from the selected audio items**
+and tick **Detect the BPM of each item from its audio**. QLC+ remembers this
+choice for next time. It analyses the whole of each song in the
+background, several songs at a time. This takes a few seconds per song, so for
+a long set list a progress window shows how many songs are done. **Stop** ends
+the analysis early: the songs being analysed get the tempo of the part heard so
+far, and the songs not started yet get none.
+
+The tempos found are then listed, one row per song, for checking before any
+section is added:
+
+* Each row shows how much of the song agrees with the tempo found. A tempo
+  that less than 60% of the song agrees with, a tempo from part of a song, and a
+  song where no tempo was found are shown in orange as needing a check. **Only
+  show the tempos that need checking** hides the others.
+* Tempo detection can find half or double the actual tempo. Correct it with
+  **½** and **×2**, or type the tempo in.
+* Only the ticked songs get a section. A song where no tempo was found is not
+  ticked, so that it can't replace a section whose tempo was set by hand. Setting
+  its tempo ticks it.
+
+**OK** adds the sections as one change, which can be undone. A section that
+already starts where a song starts, such as one added earlier with
+<i class="fa fa-music"></i>, gets the detected tempo and keeps its length and
+name. So to detect the tempo of a song again, select its audio item and add its
+section again with the detection ticked: there is no need to delete the section
+first, as long as it still starts where the audio item starts.
+
+This feature is **experimental**, and has these limitations:
+
+* It finds one tempo per song. A song that changes tempo part way through gets
+  the tempo of most of it: split its section and set the other part by hand.
+* A song played live, whose tempo wanders, gets roughly its average tempo, and
+  a steady beat grid can't follow the wander anyway.
+* The section starts where the audio item starts. When a song doesn't start on
+  its first downbeat, move the section start onto it.
+* It needs a clear beat. Songs with little or no percussion may get no tempo,
+  or a wrong one flagged for checking.
 
 To line a section up with a song, place its start on the song's first
 downbeat, using the audio item waveform as a guide, and set the song's BPM.
