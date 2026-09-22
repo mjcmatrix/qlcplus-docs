@@ -91,7 +91,7 @@ The buttons at the left of the lane:
 | Button | What it does |
 |--------|--------------|
 | <i class="fa fa-plus fa-2x" style="color:limegreen"></i> **Add a tempo section at the cursor** | Adds a section starting at the cursor. It lasts up to the next section, or one minute. |
-| <i class="fa fa-music fa-2x"></i> **Add tempo sections from the selected audio items** | Adds a section for each selected audio item, with its position, length and name. Items that another section overlaps are skipped. |
+| <i class="fa fa-music fa-2x"></i> **Add tempo sections from the selected audio items** | Adds a section for each selected audio item, with its position, length and name. When selected items overlap existing sections, it asks how to handle them (see below). |
 | <i class="fa fa-pen fa-2x"></i> **Edit the selected tempo section** | Sets the section's **BPM**, **beats per bar** and **name**. Double-clicking a section does the same. |
 | <i class="fa fa-scissors fa-2x"></i> **Split the selected tempo section at the cursor** | Splits the section in two at the beat nearest to the cursor, for example where a song changes tempo. Bar numbering starts again at 1 in the second part. |
 | <i class="fa fa-trash-can fa-2x" style="color:crimson"></i> **Delete the selected tempo section** | Removes the section. |
@@ -100,6 +100,23 @@ A new section opens its editor straight away, since its tempo always needs
 setting. **Drag** a section to move it, or drag its left or right edge to resize
 it. Sections can't overlap: a section stops at its neighbour, and can sit right
 against it. Section edges snap to the edges of the show items.
+
+Songs often overlap at their edges, with the next song starting on a second
+audio track before the previous one ends. When some of the selected audio items
+overlap existing sections, **Add tempo sections from the selected audio items**
+asks whether the new sections should **take over from their start**, which is
+ticked by default:
+
+* **Ticked:** the items are taken in start order, and the tempo changes at the
+  start of each new song. An existing section is cut where a new one starts. If
+  it ran past the end of the new section, it resumes after it, starting on a
+  beat of its own grid. A new section ends where an existing one starts, so it
+  never cuts into the start of another song. An item where a section already
+  starts at the same time is skipped.
+* **Not ticked:** only the items that no section overlaps get a section.
+
+To add sections for the second song track, for example, select its items and
+click <i class="fa fa-music"></i>.
 
 To line a section up with a song, place its start on the song's first
 downbeat, using the audio item waveform as a guide, and set the song's BPM.
