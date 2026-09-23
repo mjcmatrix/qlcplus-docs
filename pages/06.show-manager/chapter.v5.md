@@ -40,6 +40,9 @@ current playback position, and a header shows time (or beat) markers.
   select several.
 * **Drag** items along a track to change when they play, or between tracks.
 * **Double-click** an item to open the underlying function's own editor.
+* **Drag** on the header to select a time range, to remove it from the show or
+  insert empty space in it (see [Removing and inserting time](#removing-and-inserting-time)).
+  **Click** the header to move the cursor, which also clears the range.
 
 ## Toolbar
 
@@ -56,6 +59,8 @@ Across the top:
 | <i class="fa fa-minus fa-2x" style="color:crimson"></i> **Remove the selected items** | Removes the selected items from the show. (The original functions are **not** deleted.) |
 | <i class="fa fa-copy fa-2x"></i> **Copy** | Copy the selected items into the clipboard. |
 | <i class="fa fa-paste fa-2x"></i> **Paste** | Paste items from the clipboard at the cursor position. |
+| <i class="fa fa-delete-left fa-2x" style="color:crimson"></i> **Remove the selected time range** | Removes the selected time range from the whole show, moving back what follows (see [Removing and inserting time](#removing-and-inserting-time)). |
+| <i class="fa fa-arrows-left-right fa-2x" style="color:limegreen"></i> **Insert empty space** | Inserts empty space in the selected time range, moving forward what follows. |
 | **Time display** | The current cursor time. |
 | <i class="fa fa-play fa-2x"></i> **Play / Pause** | Play back or pause/resume the Show from the cursor position. |
 | <i class="fa fa-stop fa-2x"></i> **Stop / Rewind** | Stop thr Show playback (press again to rewind to the start). |
@@ -92,7 +97,7 @@ The buttons at the left of the lane:
 |--------|--------------|
 | <i class="fa fa-plus fa-2x" style="color:limegreen"></i> **Add a tempo section at the cursor** | Adds a section starting at the cursor. It lasts up to the next section, or one minute. |
 | <i class="fa fa-music fa-2x"></i> **Add tempo sections from the selected audio items** | Adds a section for each selected audio item, with its position, length and name. When selected items overlap existing sections, it asks how to handle them (see below). |
-| <i class="fa fa-pen fa-2x"></i> **Edit the selected tempo section** | Sets the section's **BPM**, **beats per bar** and **name**. Double-clicking a section does the same. |
+| <i class="fa fa-pen fa-2x"></i> **Edit the selected tempo section** | Sets the section's **BPM**, **beats per bar** and **name**. Double-clicking a section does the same. **Select the section time range** selects the time the section covers, for example to remove a whole song from the show (see [Removing and inserting time](#removing-and-inserting-time)). |
 | <i class="fa fa-scissors fa-2x"></i> **Split the selected tempo section at the cursor** | Splits the section in two at the beat nearest to the cursor, for example where a song changes tempo. Bar numbering starts again at 1 in the second part. |
 | <i class="fa fa-trash-can fa-2x" style="color:crimson"></i> **Delete the selected tempo section** | Removes the section. |
 
@@ -201,6 +206,62 @@ chasers that follow tempo sections, which don't need it.
 * In older versions of QLC+, a project with tempo sections still opens, but its
   chasers follow the global BPM, and the items of **Beats** tempo chasers appear
   in the wrong place on the timeline.
+
+## Removing and inserting time
+
+A whole stretch of the show can be removed, for example a verse cut from a
+song, or empty space can be inserted, for example to make room for an extra
+chorus. Everything after it moves along, on every track, together with the
+tempo sections.
+
+**Selecting a time range:** drag on the timeline header. The range is shown
+across all the tracks. Its edges snap to the edges of the show items and, with
+**Snap to grid** enabled, to the grid, like the items do. Hold **Ctrl** while
+dragging to place them freely. To select the time of a tempo section, open the
+section editor and click **Select the section time range**. Clicking the header
+clears the range.
+
+With a range selected:
+
+* <i class="fa fa-delete-left" style="color:crimson"></i> **Remove the selected
+  time range** first shows what will change, and asks for confirmation. Then:
+  * items entirely within the range are deleted from the show (the original
+    functions are **not** deleted).
+  * items crossing the range edges are cropped: they lose the part within the
+    range.
+  * items after the range, locked ones included, move back by the range length.
+  * the cursor follows the time it was on, and the range is cleared.
+* <i class="fa fa-arrows-left-right" style="color:limegreen"></i> **Insert empty
+  space** moves forward, by the range length, everything from the start of the
+  range. An item crossing the range start is split in two around the new space.
+  The range stays selected on the new space.
+
+Cropping or splitting an item only changes its start and length, never the
+function itself, as other items or shows may use it. Its function then stops
+earlier, or starts later from its beginning as usual. So some items can't be
+cropped or split:
+
+* **Audio** and **video** items, and collections holding them.
+* Chasers, sequences, EFX and RGB matrices set to run once (**Single Shot**) can
+  only lose their end: they can't lose their start or middle, or be split.
+* **Locked** items can't be deleted, cropped or split.
+
+When the range would need one of these items to change, nothing happens: a
+message lists the items and why. Move them or change them first, or pick
+another range.
+
+**Tempo sections** are removed, cropped or moved like the items. A section
+crossing the range just gets shorter or longer when the range lasts a whole
+number of its beats. Otherwise it's split in two, and its part after the range
+starts again on a beat of its own grid, so that it stays on the beat of the
+song.
+
+Removing or inserting time is a single step to undo. Both buttons are disabled
+while the show is playing.
+
+Unlike **Cut/Insert** in the [timing tool](#the-timing-tool), which works at
+the cursor and can change the steps of the chasers it crosses, these actions
+work on a selected range and never change the functions.
 
 ## The timing tool
 
