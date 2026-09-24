@@ -55,6 +55,8 @@ Across the top:
 | <i class="fa fa-minus fa-2x" style="color:crimson"></i> **Remove the selected items** | Removes the selected items from the show. (The original functions are **not** deleted.) |
 | <i class="fa fa-copy fa-2x"></i> **Copy** | Copy the selected items into the clipboard. |
 | <i class="fa fa-paste fa-2x"></i> **Paste** | Paste items from the clipboard at the cursor position. |
+| <i class="fa fa-scissors fa-2x"></i> **Split** | Splits each selected item in two at the cursor position, both halves keeping the original function. The cursor snaps to the grid unless you hold **Ctrl**. Only works if the cursor falls inside every selected item and none of them is a Script, a Show, or a locked item; a dialog explains why otherwise. |
+| <i class="fa fa-code-merge fa-2x"></i> **Join** | Joins the selected items back into one. Works on items that are on the same track, reference the same function, sit right next to each other with no gap, and aren't locked, a Script, or a Show; with a selection spanning several tracks, each track is joined separately. A dialog explains why otherwise. |
 | **Time display** | The current cursor time. |
 | <i class="fa fa-play fa-2x"></i> **Play / Pause** | Play back or pause/resume the Show from the cursor position. |
 | <i class="fa fa-stop fa-2x"></i> **Stop / Rewind** | Stop thr Show playback (press again to rewind to the start). |
