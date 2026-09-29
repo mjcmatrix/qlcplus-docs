@@ -115,6 +115,7 @@ The buttons at the left of the lane:
 | <i class="fa fa-pen fa-2x"></i> **Edit the selected tempo section** | Sets the section's **BPM**, **beats per bar** and **name**. Double-clicking a section does the same. |
 | <i class="fa fa-scissors fa-2x"></i> **Split the selected tempo section at the cursor** | Splits the section in two at the beat nearest to the cursor, for example where a song changes tempo. Bar numbering starts again at 1 in the second part. |
 | <i class="fa fa-trash-can fa-2x" style="color:crimson"></i> **Delete the selected tempo section** | Removes the section. |
+| <i class="fa fa-tower-broadcast fa-2x"></i> **Set the master tempo while playing** | Makes the functions started elsewhere follow this show's tempo sections (see [The master tempo](#the-master-tempo)). |
 
 A new section opens its editor straight away, since its tempo always needs
 setting. **Drag** a section to move it, or drag its left or right edge to resize
@@ -179,17 +180,36 @@ collection item, or as a step of a **Beats** tempo chaser):
 * follows tempo sections edited while it plays, from where it is, eased onto
   the new beats.
 
-A **Beats** tempo EFX started from elsewhere, for example from a Virtual Console
-button, while a show with tempo sections plays or is paused within its
-sections, follows that show's tempo instead of the global BPM: it takes the
-section tempo straight away and locks onto the show's beats within a beat. It
-goes back to the global BPM when the show stops, or while the show is before
-its first section. When the show reaches an item of an EFX already started from
-elsewhere, the EFX just goes on, following the show's tempo as above. An EFX
-started by the show and then also from elsewhere goes on after its item ends,
-still on the show's tempo sections.
-
 EFX set to a **Time** tempo, and all other functions, are not affected.
+
+### The master tempo
+
+The functions a show starts always follow its tempo sections. Those started
+elsewhere, for example from Virtual Console buttons, follow the global BPM, unless
+a playing show **sets the master tempo**:
+
+* Leave it off for a show of pre-recorded sequences fired in time, when the
+  effects run from the Virtual Console should keep their own BPM or timing.
+* Turn it on for a show running a whole performance, such as a musical, when the
+  operator adds effects from the Virtual Console that should keep in time with
+  the songs.
+
+Click <i class="fa fa-tower-broadcast"></i> **Set the master tempo while
+playing** in the tempo lane to turn it on for the show being edited. While such a
+show plays within its tempo sections, the BPM and the beats are those of its
+sections, so every **Beats** tempo function started elsewhere follows them:
+chasers, sequences, EFX and RGB matrices. EFX take the new tempo straight away
+and are eased onto the show's beats within a beat. A paused show keeps its tempo.
+Before the first section, and once the show stops, the global BPM applies again.
+
+This only happens when the beat generator is **Internal** or disabled. With an
+external beat source, such as a MIDI clock or audio input, that source always
+sets the tempo. When two shows setting the master tempo play at once, the one
+started last sets it, and the other one takes over again when it stops.
+
+A function started elsewhere keeps running as it was started when the show
+reaches one of its items. A function started by the show and then also from
+elsewhere goes on after its item ends, still on the show's tempo sections.
 
 Once a show has had tempo sections, it keeps the position of every item in
 milliseconds, even if its sections are deleted later. Its **Beats** tempo
@@ -262,7 +282,7 @@ chasers that follow tempo sections, which don't need it.
 
 * Only chasers, sequences and EFX follow the tempo sections so far. Other
   functions set to a **Beats** tempo, such as RGB matrices, still follow the
-  global BPM. Only EFX follow the tempo of a show they were not started by.
+  global BPM, unless a show sets the master tempo.
 * In older versions of QLC+, a project with tempo sections still opens, but its
   chasers follow the global BPM, and the items of **Beats** tempo chasers appear
   in the wrong place on the timeline.
