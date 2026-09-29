@@ -56,6 +56,8 @@ straight away (when paused, as soon as it resumes):
   new end of its last item.
 * Removing an item, or deleting its function, stops it. A function used by
   another item that is still playing keeps playing for that item.
+* Muting a track stops its next items from starting. The items already playing
+  go on.
 * Tempo sections added, moved, edited or deleted apply to the chasers and EFX
   already playing (see [Tempo sections](#tempo-sections)).
 
