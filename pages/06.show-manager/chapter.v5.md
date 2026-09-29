@@ -184,8 +184,10 @@ button, while a show with tempo sections plays or is paused within its
 sections, follows that show's tempo instead of the global BPM: it takes the
 section tempo straight away and locks onto the show's beats within a beat. It
 goes back to the global BPM when the show stops, or while the show is before
-its first section. An EFX already started from elsewhere keeps doing so when the
-show reaches one of its items.
+its first section. When the show reaches an item of an EFX already started from
+elsewhere, the EFX just goes on, following the show's tempo as above. An EFX
+started by the show and then also from elsewhere goes on after its item ends,
+still on the show's tempo sections.
 
 EFX set to a **Time** tempo, and all other functions, are not affected.
 
