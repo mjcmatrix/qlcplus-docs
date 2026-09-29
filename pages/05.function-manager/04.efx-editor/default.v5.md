@@ -85,6 +85,15 @@ The **Speed** section sets the timing of the effect. **Double-click** a time fie
 | **Fade in** | Time to fade the effect in when it starts. |
 | **Loop** | The duration of one full cycle around the path. |
 | **Fade out** | Time to fade out when it stops. |
+| **Tempo type** | **Time** to set the times in seconds, or **Beats** to set them in beats. |
+
+### Beats tempo
+
+With the **Beats** tempo type, the fade in and the loop are set in beats, and the EFX follows the current BPM: a loop of 4 beats lasts 2 seconds at 120 BPM and 4 seconds at 60 BPM, and a change of BPM applies straight away.
+
+When a beat generator is active (internal, MIDI clock or audio input), the EFX also keeps its whole beats on the beats it receives: an EFX started between two beats, or drifting away from them, is eased back onto them over the next beat, without jumping. With no beat generator, the EFX just runs at the BPM.
+
+Switching the tempo type converts the fade in, the loop and the fade out at the current BPM, so the EFX keeps its speed. Undo switches it back.
 
 ## Order and direction
 
