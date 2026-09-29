@@ -41,6 +41,24 @@ current playback position, and a header shows time (or beat) markers.
 * **Drag** items along a track to change when they play, or between tracks.
 * **Double-click** an item to open the underlying function's own editor.
 
+### Editing while the show plays
+
+A show can be edited while it plays or is paused, and the changes apply
+straight away (when paused, as soon as it resumes):
+
+* An item added or moved ahead of the cursor plays when the cursor reaches it.
+  One added or moved under the cursor starts straight away, from where the
+  cursor is in it, as when the show is played from the middle of the item.
+* An item that is playing and gets moved keeps playing without restarting, as
+  long as it is still under the cursor, and stops at its new end. Moved past the
+  cursor, it stops and plays again when the cursor reaches it.
+* Resizing an item that is playing changes when it stops. The show ends at the
+  new end of its last item.
+* Removing an item, or deleting its function, stops it. A function used by
+  another item that is still playing keeps playing for that item.
+* Tempo sections added, moved, edited or deleted apply to the chasers and EFX
+  already playing (see [Tempo sections](#tempo-sections)).
+
 ## Toolbar
 
 Across the top:
