@@ -158,7 +158,36 @@ A chaser set to a **Beats** tempo on a show with tempo sections:
   as when it is played from the start.
 
 Its fades, when set by the chaser, are timed at the section tempo too. Chasers
-set to a **Time** tempo, and all other functions, are not affected.
+set to a **Time** tempo are not affected.
+
+### How EFX follow the sections
+
+An EFX set to a **Beats** tempo on a show with tempo sections (on a track, in a
+collection item, or as a step of a **Beats** tempo chaser):
+
+* counts its beats at the tempo of the section it is playing in, so a loop of 4
+  beats takes 4 beats of each song, and its fade in too.
+* moves smoothly: when it enters a section, or starts off the beat, its whole
+  beats are eased onto that section's beats over one beat, without jumping. An
+  item starting exactly half a beat off the beat runs slower for its first
+  beat.
+* keeps the tempo of the last section in the gap after it, and follows the
+  global BPM before the first section.
+* is in the same place when the show is played from the middle of the EFX as
+  when it is played from the start, and carries on from where it was when the
+  show is paused and resumed.
+* follows tempo sections edited while it plays, from where it is, eased onto
+  the new beats.
+
+A **Beats** tempo EFX started from elsewhere, for example from a Virtual Console
+button, while a show with tempo sections plays or is paused within its
+sections, follows that show's tempo instead of the global BPM: it takes the
+section tempo straight away and locks onto the show's beats within a beat. It
+goes back to the global BPM when the show stops, or while the show is before
+its first section. An EFX already started from elsewhere keeps doing so when the
+show reaches one of its items.
+
+EFX set to a **Time** tempo, and all other functions, are not affected.
 
 Once a show has had tempo sections, it keeps the position of every item in
 milliseconds, even if its sections are deleted later. Its **Beats** tempo
@@ -175,26 +204,27 @@ nearby items still works as usual, and takes priority over the grid, so items
 can also be lined up with edges that are off the beat. Outside the sections the
 grid and its snapping are unchanged.
 
-### Converting chasers between Time and Beats tempo
+### Converting chasers and EFX between Time and Beats tempo
 
-Existing chasers set to a **Time** tempo can be converted to a **Beats** tempo
-at the tempo of a song, and back. Click
-<i class="fa fa-right-left fa-2x"></i> **Convert Chasers between Time and
+Existing chasers and EFX set to a **Time** tempo can be converted to a **Beats**
+tempo at the tempo of a song, and back. Click
+<i class="fa fa-right-left fa-2x"></i> **Convert Chasers and EFX between Time and
 Beats tempo** in the toolbar, or click the same button next to **Tempo** in the
 chaser editor. The converter offers:
 
-* **Convert**: Time tempo chasers to Beats, or Beats tempo chasers to Time.
-* **Chasers of**: the selected items, every item of the whole show, or every
-  item of all shows, for example a show per act. Chasers started from
-  collections are included, also through nested collections, and take the
-  tempo of the section at the start of the collection item. Chasers already in
+* **Convert**: Time tempo chasers and EFX to Beats, or Beats tempo ones to Time.
+  For an EFX, its fade in, loop and fade out are converted.
+* **Chasers and EFX of**: the selected items, every item of the whole show, or
+  every item of all shows, for example a show per act. Chasers and EFX started
+  from collections are included, also through nested collections, and take the
+  tempo of the section at the start of the collection item. Those already in
   the target tempo are skipped, so you can convert one track at a time.
 * **Tempo**: the tempo section under each item (from the chaser editor, the
   section at the cursor), one of the sections, or a BPM you type.
 * **Round to**: step times in beats are rounded to the nearest 1, ½, ¼ or ⅛ of
   a beat. Nothing is rounded down to zero.
-* **Apply to**: the chasers themselves, which changes them everywhere they are
-  used, or new copies. Copies are used by the selected items, or by every item
+* **Apply to**: the chasers and EFX themselves, which changes them everywhere
+  they are used, or new copies. Copies are used by the selected items, or by every item
   of the show using the original, and the originals stay unchanged. When the
   items are in songs at different tempos, you get one copy per tempo, unless
   you untick **One copy per tempo**. Copies are only made in the show being
@@ -228,8 +258,9 @@ chasers that follow tempo sections, which don't need it.
 
 ### Limitations
 
-* Only chasers and sequences follow the tempo sections so far. Other functions
-  set to a **Beats** tempo, such as RGB matrices, still follow the global BPM.
+* Only chasers, sequences and EFX follow the tempo sections so far. Other
+  functions set to a **Beats** tempo, such as RGB matrices, still follow the
+  global BPM. Only EFX follow the tempo of a show they were not started by.
 * In older versions of QLC+, a project with tempo sections still opens, but its
   chasers follow the global BPM, and the items of **Beats** tempo chasers appear
   in the wrong place on the timeline.
