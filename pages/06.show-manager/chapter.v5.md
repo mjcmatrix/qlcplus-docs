@@ -51,6 +51,7 @@ Across the top:
 | ![](../basics/color.svg?resize=48,48) **Show items color** | Sets the colour of the selected timeline items, to colour-code your show. |
 | ![](../basics/lock.svg?resize=48,48) **Lock / Unlock** | Locks the selected items so they can't be moved or resized by accident (the icon toggles between lock and unlock). |
 | ![](../basics/grid.svg?resize=48,48) **Snap to grid** | Makes items snap to the time grid when you move them. |
+| <i class="fa fa-drum fa-2x"></i> **Show the tempo sections** | Shows the tempo lane below the timeline header (see [Tempo sections](#tempo-sections)). Only available with **Time** markers. |
 | <i class="fa fa-arrows-left-right-to-line fa-2x"></i> **Stretch the original function** | When enabled, resizing an item stretches the underlying function's timing to fit, rather than just cropping it. |
 | <i class="fa fa-minus fa-2x" style="color:crimson"></i> **Remove the selected items** | Removes the selected items from the show. (The original functions are **not** deleted.) |
 | <i class="fa fa-copy fa-2x"></i> **Copy** | Copy the selected items into the clipboard. |
@@ -68,6 +69,138 @@ Each track is one row of the timeline.
 * Use the <i class="fa fa-plus" style="color:limegreen"></i> **Create a new track** control to add a track.
 * When a track is selected, the <i class="fa fa-angle-up"></i> / <i class="fa fa-angle-down"></i> **move track up / down** arrows (top-left of the
   timeline) reorder it among the other tracks.
+
+## Tempo sections
+
+A show often plays several songs one after another, each at its own tempo.
+**Tempo sections** tell the Show the tempo of each part of the timeline, so
+that chasers set to a **Beats** tempo step exactly on the beat of the song they
+play over, instead of following the global BPM.
+
+Click <i class="fa fa-drum"></i> **Show the tempo sections** to show the
+**Tempo** lane below the timeline header. It is available when the **Markers**
+setting is **Time**. A show that has tempo sections always shows the lane.
+
+Each section has a start, a length, a **BPM** (decimal values such as 127.5 are
+allowed), a number of **beats per bar** and a name. The lane shows the bar
+numbers and beat ticks of each section, starting from bar 1 at the section
+start. Tap a section to select it.
+
+The buttons at the left of the lane:
+
+| Button | What it does |
+|--------|--------------|
+| <i class="fa fa-plus fa-2x" style="color:limegreen"></i> **Add a tempo section at the cursor** | Adds a section starting at the cursor. It lasts up to the next section, or one minute. |
+| <i class="fa fa-music fa-2x"></i> **Add tempo sections from the selected audio items** | Adds a section for each selected audio item, with its position, length and name. When selected items overlap existing sections, it asks how to handle them (see below). |
+| <i class="fa fa-pen fa-2x"></i> **Edit the selected tempo section** | Sets the section's **BPM**, **beats per bar** and **name**. Double-clicking a section does the same. |
+| <i class="fa fa-scissors fa-2x"></i> **Split the selected tempo section at the cursor** | Splits the section in two at the beat nearest to the cursor, for example where a song changes tempo. Bar numbering starts again at 1 in the second part. |
+| <i class="fa fa-trash-can fa-2x" style="color:crimson"></i> **Delete the selected tempo section** | Removes the section. |
+
+A new section opens its editor straight away, since its tempo always needs
+setting. **Drag** a section to move it, or drag its left or right edge to resize
+it. Sections can't overlap: a section stops at its neighbour, and can sit right
+against it. Section edges snap to the edges of the show items.
+
+Songs often overlap at their edges, with the next song starting on a second
+audio track before the previous one ends. When some of the selected audio items
+overlap existing sections, **Add tempo sections from the selected audio items**
+asks whether the new sections should **take over from their start**, which is
+ticked by default:
+
+* **Ticked:** the items are taken in start order, and the tempo changes at the
+  start of each new song. An existing section is cut where a new one starts. If
+  it ran past the end of the new section, it resumes after it, starting on a
+  beat of its own grid. A new section ends where an existing one starts, so it
+  never cuts into the start of another song. An item where a section already
+  starts at the same time is skipped.
+* **Not ticked:** only the items that no section overlaps get a section.
+
+To add sections for the second song track, for example, select its items and
+click <i class="fa fa-music"></i>.
+
+To line a section up with a song, place its start on the song's first
+downbeat, using the audio item waveform as a guide, and set the song's BPM.
+Moving a section or changing its tempo never moves the show items. All the
+changes to tempo sections can be undone.
+
+### How chasers follow the sections
+
+A chaser set to a **Beats** tempo on a show with tempo sections:
+
+* steps at the tempo of the section it is playing in, and changes steps on that
+  section's beats. A chaser placed off the beat changes its first step on the
+  nearest beat, then stays on the beat.
+* follows the new tempo and beat grid when it runs from one section into the
+  next.
+* keeps the tempo of the last section in the gap after it, and follows the
+  global BPM before the first section.
+* lands on the same step when the show is played from the middle of the chaser
+  as when it is played from the start.
+
+Its fades, when set by the chaser, are timed at the section tempo too. Chasers
+set to a **Time** tempo, and all other functions, are not affected.
+
+Once a show has had tempo sections, it keeps the position of every item in
+milliseconds, even if its sections are deleted later. Its **Beats** tempo
+chasers then follow the global BPM until the show gets new sections. Switching
+the **Markers** to a BPM setting only changes the ruler: the items and the
+tempo sections stay as they are.
+
+### Grid and snapping
+
+With **Snap to grid** enabled, the grid inside a section shows its bars and
+beats, and adds half and quarter beats when you zoom in. Moving or resizing an
+item inside a section snaps it to the finest beat division visible. Snapping to
+nearby items still works as usual, and takes priority over the grid, so items
+can also be lined up with edges that are off the beat. Outside the sections the
+grid and its snapping are unchanged.
+
+### Converting chasers between Time and Beats tempo
+
+Existing chasers set to a **Time** tempo can be converted to a **Beats** tempo
+at the tempo of a song, and back. Click
+<i class="fa fa-right-left fa-2x"></i> **Convert Chasers between Time and
+Beats tempo** in the toolbar, or click the same button next to **Tempo** in the
+chaser editor. The converter offers:
+
+* **Convert**: Time tempo chasers to Beats, or Beats tempo chasers to Time.
+* **Chasers of**: the selected items, every item of the whole show, or every
+  item of all shows, for example a show per act. Chasers started from
+  collections are included, also through nested collections, and take the
+  tempo of the section at the start of the collection item. Chasers already in
+  the target tempo are skipped, so you can convert one track at a time.
+* **Tempo**: the tempo section under each item (from the chaser editor, the
+  section at the cursor), one of the sections, or a BPM you type.
+* **Round to**: step times in beats are rounded to the nearest 1, ½, ¼ or ⅛ of
+  a beat. Nothing is rounded down to zero.
+* **Apply to**: the chasers themselves, which changes them everywhere they are
+  used, or new copies. Copies are used by the selected items, or by every item
+  of the show using the original, and the originals stay unchanged. When the
+  items are in songs at different tempos, you get one copy per tempo, unless
+  you untick **One copy per tempo**. Chasers started from collections are only
+  converted in place, as a copy would change the collection wherever it is
+  used, and copies are only made in the show being edited.
+
+The converter shows the converted timings before you apply them, and the other
+places a chaser converted in place is used. A chaser converted in place gets a
+single tempo, taken from most of its items. The whole conversion can be undone.
+
+Beats tempo chasers and sequences started by a collection item follow the tempo
+sections too.
+
+**Speed Dials:** a Virtual Console Speed Dial sets the times of the functions
+it controls in milliseconds, even on a chaser set to a **Beats** tempo, where
+they are then read as beats (500 ms becomes half a beat). The converter warns
+when a chaser is controlled by a Speed Dial. Disconnect the Speed Dial from
+chasers that follow tempo sections, which don't need it.
+
+### Limitations
+
+* Only chasers and sequences follow the tempo sections so far. Other functions
+  set to a **Beats** tempo, such as RGB matrices, still follow the global BPM.
+* In older versions of QLC+, a project with tempo sections still opens, but its
+  chasers follow the global BPM, and the items of **Beats** tempo chasers appear
+  in the wrong place on the timeline.
 
 ## The timing tool
 
