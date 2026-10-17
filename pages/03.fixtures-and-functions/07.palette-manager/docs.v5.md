@@ -19,7 +19,11 @@ used.
 
 The main area lists every palette, each with an icon for its type and its name.
 
-* **Click** a palette to select it; **Ctrl+click** to select several.
+* **Click** a palette to select it; **Ctrl+click** to add a palette to the
+  selection or remove it. **Shift+click** selects the range from the last
+  selected palette, and **Ctrl+Shift+click** adds that range to the selection.
+* On a touch screen, turn on **Toggle multiple selection** in the left toolbar:
+  tapping then adds or removes palettes, and **press and hold** selects a range.
 * **Drag** a palette onto fixtures or other targets to apply it.
 * **Double-click** a palette to open its editing tool (see below).
 
