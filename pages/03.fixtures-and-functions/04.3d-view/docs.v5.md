@@ -44,7 +44,14 @@ settings panel. Its sections can be expanded and collapsed.
 ### Rendering
 
 * **Quality** — render quality: **Low**, **Medium**, **High** or **Ultra**.
-  Higher settings look better but demand more from your graphics hardware.
+  Higher settings look better but demand more from your graphics hardware. It
+  also sets how many separate lights a pixel bar casts onto the stage: a bar's
+  cells are grouped into zones, at most 4 on **Medium** and 8 on **High**, so a
+  bar with hundreds of pixels does not need hundreds of lights. The glowing
+  cells are always drawn individually and the total light is the same at any
+  setting; only how finely it varies along the bar changes. A bar gets one zone
+  per 25 cm of its physical length. Changing **Quality** takes effect the next
+  time you open the 3D view.
 * **Ambient light** — overall brightness of the scene when no fixtures are lit
   (0–100%).
 * **Smoke amount** — how much atmospheric haze is in the air (0–100%), which
