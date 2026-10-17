@@ -28,11 +28,10 @@ full-screen workspace, the **Show Manager**, instead of the right-panel editor.
 You enter it by creating a Show from the **Add a new function** menu, or by
 double-clicking an existing Show in the Function Manager.
 
-The Show Manager remembers which Show it is displaying and how far the timeline
-is zoomed. Both are saved in the project file, so reopening a project brings
-back the same view. Projects saved without this information open with no Show
-selected and the default zoom. If the displayed Show is deleted, the Show
-Manager closes it and returns to the empty view.
+The Show Manager remembers the Show it is displaying and the timeline zoom,
+saving both in the project file. Projects saved without them open with no Show
+selected and the default zoom. Deleting the displayed Show returns to the empty
+view.
 
 ## The timeline
 
