@@ -74,23 +74,22 @@ Each track is one row of the timeline.
 
 ## Cut, copy and paste
 
-Select items, then cut or copy them with the toolbar buttons or with
-**Ctrl+X** / **Ctrl+C**, and paste them with the **Paste** button or **Ctrl+V**.
-The keys work when you last clicked on the timeline or on a track, and not
-while you are typing in a text field, such as when renaming a track.
+Select items, then cut or copy them with the toolbar buttons or **Ctrl+X** /
+**Ctrl+C**, and paste with the **Paste** button or **Ctrl+V**. The keys work
+after you last clicked the timeline or a track, and not while typing in a text
+field such as a track name.
 
-* **Cut** items stay where they are, dimmed, until you paste: the paste then
-  moves them. Copying something else cancels the cut. Locked items can't be cut.
-* A paste places the **earliest** item at the **cursor**, and keeps the other
-  items at the same distance from it.
+* **Cut** items stay in place, dimmed, until you paste, which moves them.
+  Copying something else cancels the cut. Locked items can't be cut.
+* A paste puts the **earliest** item at the **cursor** and keeps the others at
+  the same distance from it.
 * The topmost track of the items goes onto the **selected track**, and the rest
-  follow on the tracks below it, keeping the same layout, empty tracks in
-  between included. If no track is selected, the items go back onto their own
-  tracks.
-* Items on a track can't overlap. If any pasted item would overlap an existing
-  one, or there are not enough tracks below the selected one, nothing is
-  pasted and a message tells you why. When moving cut items, the space they
-  leave counts as free.
+  follow below it with the same layout, empty tracks included. With no track
+  selected, the items go back onto their own tracks.
+* Items on a track can't overlap. If a pasted item would overlap an existing
+  one, or there are too few tracks below the selected one, nothing is pasted and
+  a message says why. When moving cut items, the space they leave counts as
+  free.
 * The pasted items become the new selection.
 
 ## The timing tool
