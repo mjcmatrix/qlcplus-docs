@@ -63,19 +63,17 @@ Across the top:
 
 ## Playing the show
 
-Besides the two toolbar buttons, the playback can be driven from the keyboard
-while the Show Manager is on screen:
+The playback can also be driven from the keyboard while the Show Manager is on
+screen, including when it is detached into its own window:
 
 | Key | What it does |
 |-----|--------------|
-| **Space** | Play, pause or resume the Show, exactly like the **Play / Pause** button. |
-| **Esc** | Stop the Show; press it again to rewind the cursor to the start. |
+| **Space** | Play, pause or resume the Show, like the **Play / Pause** button. |
+| **Esc** | Stop the Show; press again to rewind the cursor to the start. |
 
-The keys work wherever you are in the Show Manager, without having to click the
-timeline first, and they also work when the Show Manager has been detached into
-its own window. They are ignored while you are typing in a field such as the
-show's **Name**, while a dialog is open, and while another workspace (the
-Virtual Console, for instance) is the one on screen.
+The keys work without clicking the timeline first. They are ignored while you
+type in a field such as the show's **Name**, while a dialog is open, and while
+another workspace (the Virtual Console, for instance) is on screen.
 
 ## Tracks
 
