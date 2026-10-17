@@ -105,7 +105,7 @@ applies to. Click a button to open its tool next to the panel.
 |--------|--------------|
 | <i class="fa fa-bolt fa-2x"></i> **Highlight** | Temporarily highlights the currently selected fixtures so you can see which ones they are. The number shows how many fixtures are selected. |
 | <i class="fa fa-crosshairs fa-2x"></i> **Pick a 3D point** | (3D view only) Lets you click a point in the 3D stage to aim the selected fixtures at it. Shortcut: **Ctrl+P**. |
-| ![](../basics/multiple.svg?resize=48,48) **Toggle multiple selection** | When enabled, clicking or tapping fixtures adds them to the selection instead of replacing it, so you can build up a selection of several fixtures. This is the touch screen equivalent of **Ctrl+click**, and it applies to the other lists too (palettes, functions, and the lists of the editors). With it enabled, **press and hold** an item in a list to select the range up to it, as **Shift+click** does. |
+| ![](../basics/multiple.svg?resize=48,48) **Toggle multiple selection** | When enabled, clicking or tapping fixtures adds them to the selection instead of replacing it. This is the touch screen equivalent of **Ctrl+click**, and applies to the other lists too (palettes, functions, editor lists). **Press and hold** a list item to select the range up to it, as **Shift+click** does. |
 | ![](../basics/selectall.svg?resize=48,48) **Select / Deselect all** | Selects every fixture, or clears the selection if everything is already selected. Shortcut: **Ctrl+A**. |
 
 ---
@@ -126,7 +126,7 @@ Sequences, EFX, RGB Matrices, Collections, Scripts, Audio, Video and Shows.
 | <i class="fa fa-sitemap fa-2x"></i>**Show function usage** | Shows where the selected function is used — which other functions, virtual console widgets, etc. reference it. |
 | ![](../basics/autostart.svg?resize=48,48) **Autostart** | Marks the selected function to start automatically when the project is loaded (or removes that mark). |
 | <i class="fa fa-play fa-2x"></i>**Function Preview** | Runs the selected function live so you can preview it. Click again to stop. |
-| ![](../basics/multiple.svg?resize=48,48) **Toggle multiple selection** | Lets you select several items at once: Show Manager items, or functions in the Function Manager. In the Function Manager, **press and hold** a function or folder to select the range up to it. It is the same setting as in the left panel. |
+| ![](../basics/multiple.svg?resize=48,48) **Toggle multiple selection** | Lets you select several items at once: Show Manager items, or functions in the Function Manager, where **press and hold** selects the range up to a function or folder. Same setting as in the left panel. |
 | <i class="fa fa-xmark fa-2x"></i>**Reset dump channels** | Clears the channels currently captured for dumping into a scene. Shortcut: **Ctrl+R**. |
 
 ### Creating a function
@@ -153,7 +153,7 @@ the screen to host editors that work alongside the main view — most often the
 |----------|-------------------|
 | <i class="fa fa-chevron-up fa-2x"></i> **Expand / Collapse** | opens the panel to its full height or collapses it back to a thin strip. You can also drag the top edge of the panel up or down to set any height you like |
 | <i class="fa fa-copy fa-2x"></i> **Copy to fixtures of the same type** | (Scene console only) copies the selected channel values to every other fixture of the same type, so you don't have to set them one by one |
-| ![](../basics/multiple.svg?resize=48,48) **Toggle multiple channel selection** | Lets you select several channels (Scene console) or several entries of the list of the open editor, such as Chaser steps. **Press and hold** a list entry to select the range up to it. It is the same setting as in the left panel |
+| ![](../basics/multiple.svg?resize=48,48) **Toggle multiple channel selection** | Lets you select several channels (Scene console) or entries of the open editor's list, such as Chaser steps. **Press and hold** an entry to select the range up to it. Same setting as in the left panel. |
 
 While the bottom panel is open it shares the screen with the views above it,
 which shrink to make room.
