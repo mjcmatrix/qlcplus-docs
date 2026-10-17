@@ -45,15 +45,12 @@ settings panel. Its sections can be expanded and collapsed.
 
 * **Quality** — render quality: **Low**, **Medium**, **High** or **Ultra**.
   Higher settings look better but demand more from your graphics hardware. It
-  also sets how many separate lights a pixel bar casts onto the stage. A bar's
-  cells are grouped into zones — at most 4 on **Medium** and 8 on **High** — so
-  a batten with hundreds of pixels does not ask your graphics card for hundreds
-  of lights, which no card can keep up with. The bar's glowing cells are always
-  drawn individually, and the total light it casts is the same whichever
-  setting you choose; only how finely that light varies along the length of the
-  bar changes. How many zones a bar gets is worked out from its physical length,
-  one every 25 cm, so a bar whose definition declares a short face gets a single
-  zone however many pixels it has. Changing **Quality** takes effect the next
+  also sets how many separate lights a pixel bar casts onto the stage: a bar's
+  cells are grouped into zones, at most 4 on **Medium** and 8 on **High**, so a
+  bar with hundreds of pixels does not need hundreds of lights. The glowing
+  cells are always drawn individually and the total light is the same at any
+  setting; only how finely it varies along the bar changes. A bar gets one zone
+  per 25 cm of its physical length. Changing **Quality** takes effect the next
   time you open the 3D view.
 * **Ambient light** — overall brightness of the scene when no fixtures are lit
   (0–100%).
