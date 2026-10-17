@@ -41,6 +41,23 @@ current playback position, and a header shows time (or beat) markers.
 * **Drag** items along a track to change when they play, or between tracks.
 * **Double-click** an item to open the underlying function's own editor.
 
+### Snapping
+
+While you drag or resize an item, the Show Manager helps you line it up in two
+ways, each with its own toolbar button:
+
+* **Snap to nearby items** pulls the edge you are moving onto the start or end
+  of another item, and draws a vertical guide line where it locks. On by
+  default.
+* **Snap to grid** rounds the item onto the timeline's own divisions.
+
+Hold **Ctrl** while dragging or resizing to suspend both for that gesture, for
+example to place an item just beside another one instead of flush. It can be
+pressed or released mid-drag.
+
+The **Snap to nearby items** state is remembered on this computer, not saved in
+the project.
+
 ## Toolbar
 
 Across the top:
@@ -51,6 +68,7 @@ Across the top:
 | ![](../basics/color.svg?resize=48,48) **Show items color** | Sets the colour of the selected timeline items, to colour-code your show. |
 | ![](../basics/lock.svg?resize=48,48) **Lock / Unlock** | Locks the selected items so they can't be moved or resized by accident (the icon toggles between lock and unlock). |
 | ![](../basics/grid.svg?resize=48,48) **Snap to grid** | Makes items snap to the time grid when you move them. |
+| <i class="fa fa-magnet fa-2x" style="color:lightsteelblue"></i> **Snap to nearby items** | Makes items snap to the start and end edges of the other items on the timeline. Enabled by default. Hold **Ctrl** while dragging to suspend it (see [Snapping](#snapping)). |
 | <i class="fa fa-arrows-left-right-to-line fa-2x"></i> **Stretch the original function** | When enabled, resizing an item stretches the underlying function's timing to fit, rather than just cropping it. |
 | <i class="fa fa-minus fa-2x" style="color:crimson"></i> **Remove the selected items** | Removes the selected items from the show. (The original functions are **not** deleted.) |
 | <i class="fa fa-copy fa-2x"></i> **Copy** | Copy the selected items into the clipboard. |
