@@ -28,6 +28,11 @@ full-screen workspace, the **Show Manager**, instead of the right-panel editor.
 You enter it by creating a Show from the **Add a new function** menu, or by
 double-clicking an existing Show in the Function Manager.
 
+The Show Manager remembers the Show it is displaying and the timeline zoom,
+saving both in the project file. Projects saved without them open with no Show
+selected and the default zoom. Deleting the displayed Show returns to the empty
+view.
+
 ## The timeline
 
 The main area is a **timeline**: time runs left to right, and each horizontal
