@@ -44,23 +44,14 @@ current playback position, and a header shows time (or beat) markers.
 
 ### Editing while the show plays
 
-A show can be edited while it plays or is paused, and the changes apply
-straight away (when paused, as soon as it resumes):
+A show can be edited while it plays or is paused, with the changes applying straight away (when paused, as soon as it resumes):
 
-* An item added or moved ahead of the cursor plays when the cursor reaches it.
-  One added or moved under the cursor starts straight away, from where the
-  cursor is in it, as when the show is played from the middle of the item.
-* An item that is playing and gets moved keeps playing without restarting, as
-  long as it is still under the cursor, and stops at its new end. Moved past the
-  cursor, it stops and plays again when the cursor reaches it.
-* Resizing an item that is playing changes when it stops. The show ends at the
-  new end of its last item.
-* Removing an item, or deleting its function, stops it. A function used by
-  another item that is still playing keeps playing for that item.
-* Muting a track stops its next items from starting. The items already playing
-  go on.
-* Tempo sections added, moved, edited or deleted apply to the chasers and EFX
-  already playing (see [Tempo sections](#tempo-sections)).
+* An item added or moved ahead of the cursor plays when the cursor reaches it. One added or moved under the cursor starts at once, from where the cursor is in it.
+* A playing item that is moved keeps playing without restarting while it is still under the cursor, and stops at its new end. Moved past the cursor, it stops and plays again when the cursor reaches it.
+* Resizing a playing item changes when it stops. The show ends at the end of its last item.
+* Removing an item, or deleting its function, stops it, unless another playing item uses the function.
+* Muting a track stops its next items from starting; items already playing go on.
+* Tempo sections added, moved, edited or deleted apply to the chasers and EFX already playing (see [Tempo sections](#tempo-sections)).
 
 ## Toolbar
 
@@ -107,8 +98,24 @@ Click <i class="fa fa-drum"></i> **Show the tempo sections** to show the tempo l
 | <i class="fa fa-pen fa-2x"></i> **Edit the selected tempo section** | Sets the **BPM**, **beats per bar** and name. Double-click does the same. |
 | **Split the selected tempo section at the cursor** | Splits the section at the nearest beat. |
 | <i class="fa fa-trash-can fa-2x" style="color:crimson"></i> **Delete the selected tempo section** | **Shift**+click deletes all the sections. |
+| <i class="fa fa-tower-broadcast fa-2x"></i> **Set the master tempo while playing** | Makes the functions started elsewhere follow this show's tempo sections (see [The master tempo](#the-master-tempo)). |
 
 All changes can be undone. While the show plays, the main toolbar shows the BPM of the section playing and a circle that flashes on each beat of the bar.
+
+### How EFX follow the sections
+
+An EFX set to a **Beats** tempo (on a track, in a collection, or as a chaser step) counts its beats, fade in included, at the tempo of the section it plays in, so a loop of 4 beats takes 4 beats of each song. When it enters a section or starts off the beat, its whole beats are eased onto the section's beats over one beat, without jumping. Like chasers, it keeps the tempo of the last section in the gap after it, follows the global BPM before the first section, and plays the same when the show starts in the middle of it. Sections edited while it plays ease it onto the new beats.
+
+### The master tempo
+
+Functions a show starts always follow its tempo sections. Those started elsewhere, such as from Virtual Console buttons, follow the global BPM unless a playing show **sets the master tempo**:
+
+* Leave it off for a show of pre-recorded sequences, when effects run from the Virtual Console should keep their own BPM or timing.
+* Turn it on for a show running a whole performance, when effects added from the Virtual Console should keep in time with the songs.
+
+Click <i class="fa fa-tower-broadcast"></i> **Set the master tempo while playing** in the tempo lane to turn it on for the show being edited. While the show plays within its sections, every **Beats** tempo function started elsewhere (chasers, sequences, EFX and RGB matrices) follows their BPM and beats. A paused show keeps its tempo; before the first section and once the show stops, the global BPM applies again.
+
+An external beat source, such as a MIDI clock or audio input, always sets the tempo instead. When two such shows play at once, the one started last sets it, and the other takes over again when it stops. A function started elsewhere keeps running as it was started when the show reaches one of its items.
 
 ### Converting Time and Beats tempo
 
@@ -125,7 +132,7 @@ The converter previews the result, and the whole conversion is one undo step.
 
 A Virtual Console Speed Dial writes milliseconds, which a **Beats** tempo chaser reads as beats, so the converter warns when a chaser has a Speed Dial. Disconnect it from chasers that follow tempo sections.
 
-Only chasers, sequences and EFX follow the sections so far. RGB matrices and scenes still follow the global BPM.
+Only chasers, sequences and EFX follow the sections so far. RGB matrices and scenes still follow the global BPM, unless a show sets the master tempo.
 
 ## The timing tool
 
