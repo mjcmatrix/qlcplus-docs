@@ -31,7 +31,12 @@ functions are on the right panel itself — see
 Functions are shown in a tree. You can group them into **folders** to keep large
 projects tidy.
 
-* **Click** a function to select it; **Ctrl+click** to select several.
+* **Click** a function to select it; **Ctrl+click** to toggle it in the
+  selection. **Shift+click** selects the range from the last selected item, and
+  **Ctrl+Shift+click** adds that range.
+* On a touch screen, turn on **Toggle multiple selection** in the right toolbar
+  to toggle by tapping, as Ctrl+click does. **Press and hold** an item to select
+  the range up to it, as Shift+click does.
 * **Double-click** a function to open its editor. (Double-clicking a **Show**
   switches to the Show Manager.)
 * **Double-click** a folder to expand or collapse it.
